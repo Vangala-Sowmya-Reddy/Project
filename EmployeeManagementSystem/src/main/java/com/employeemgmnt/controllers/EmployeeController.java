@@ -35,7 +35,7 @@ public class EmployeeController {
 			}
 			catch(Exception ex)
 			{
-				throw new EmployeeNotFoundException("Unable to handle Employee Request");
+				throw new EmployeeNotFoundException("Employee data is not inserted!Please enter valid employee details");
 			}
 			return new ResponseEntity<Employee>(HttpStatus.BAD_REQUEST);
 		}

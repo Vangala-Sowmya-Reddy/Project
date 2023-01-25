@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.employeemgmnt.entities.Company;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,5 +33,7 @@ public class EmployeeDTO {
 	
 	@Pattern(regexp="\\d{10}",message="Invalid MobileNumber")
 	private String mobileNo;
+	
+	private Company company;
 	
 }

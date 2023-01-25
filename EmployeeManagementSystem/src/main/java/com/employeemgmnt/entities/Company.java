@@ -23,7 +23,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Company {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)  //Auto-generation of Id
+	//@GeneratedValue(strategy=GenerationType.IDENTITY) 
+	@Column(name="CompanyId",length=10)
 	private Integer id;
 	@Column(name="CompanyName",length=20)  //Naming the column and defining the length of the column name
 	private String name;

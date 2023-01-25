@@ -15,13 +15,19 @@ public class CompanyServiceImpl implements CompanyService {
 	@Override
 	public Company saveCompany(CompanyDTO companyDTO) {
 		
-		Company company=Company.builder().name(companyDTO.getName()).location(companyDTO.getLocation()).pincode(companyDTO.getPincode()).build();
+		Company company=Company.builder()
+				.id(companyDTO.getId())
+				.name(companyDTO.getName())
+				.location(companyDTO.getLocation())
+				.pincode(companyDTO.getPincode())
+				.build();
 		return companyRepository.save(company);
 	}
 
 	@Override
 	public String updateCompany(CompanyDTO params, Integer companyId) {
 		company=companyRepository.findById(companyId).get();
+		company.setId(params.getId());
 		company.setName(params.getName());
 		company.setLocation(params.getLocation());
 		company.setPincode(params.getPincode());

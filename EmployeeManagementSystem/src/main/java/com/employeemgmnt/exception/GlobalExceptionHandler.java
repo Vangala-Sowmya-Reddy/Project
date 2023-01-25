@@ -11,9 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
+@ResponseStatus(HttpStatus.BAD_REQUEST)
 public class GlobalExceptionHandler {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	ResponseEntity<Map<String,List<String>>> handelValidatioonError(MethodArgumentNotValidException e)
@@ -32,6 +34,7 @@ public class GlobalExceptionHandler {
 		return errorResponse;
 	}
 	
+	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@ExceptionHandler(EmployeeNotFoundException.class)
 	public ResponseEntity<Map<String,List<String>>> handleNotFoundException(EmployeeNotFoundException e)
 	{
@@ -39,8 +42,9 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(getErrorMap(errors),new HttpHeaders(),HttpStatus.NOT_FOUND);
 	}
 	
+	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@ExceptionHandler(CompanyNotFoundException.class)
-	public ResponseEntity<Map<String,List<String>>> handleNotFoundException(CompanyNotFoundException e)
+	public ResponseEntity<Map<String,List<String>>> NotFoundException(CompanyNotFoundException e)
 	{
 		List<String> errors=Collections.singletonList(e.getMessage());
 		return new ResponseEntity<>(getErrorMap(errors),new HttpHeaders(),HttpStatus.NOT_FOUND);

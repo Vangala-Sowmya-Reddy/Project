@@ -17,7 +17,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee saveEmployee(EmployeeDTO employeeDTO) {
-		Employee employee=Employee.builder().name(employeeDTO.getName()).emailId(employeeDTO.getEmailId()).age(employeeDTO.getAge()).build();
+		Employee employee=Employee.builder()
+				.name(employeeDTO.getName())
+				.emailId(employeeDTO.getEmailId())
+				.age(employeeDTO.getAge())
+				.mobileNo(employeeDTO.getMobileNo())
+				.company(employeeDTO.getCompany())
+				.build();
 		return employeeRepository.save(employee);
 	}
 	

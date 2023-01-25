@@ -14,6 +14,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CompanyDTO {
+	@NotNull(message="Company Id should not be Null")
+	private Integer Id;
+	
 	@NotBlank(message="Emptiness is not allowed")
 	@NotNull(message="Null is not allowed")
 	@Size(min=4,max=20,message="Name must be in the range 4-20 characters")
@@ -26,5 +29,7 @@ public class CompanyDTO {
 	
 	@Pattern(regexp="\\d{6}",message="Invalid Pincode")
 	private String pincode;
+	
+	
 	
 }

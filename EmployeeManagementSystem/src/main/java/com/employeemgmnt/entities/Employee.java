@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Employee {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)   //Auto-generation of Id
+	@GeneratedValue(strategy=GenerationType.AUTO)   
 	@Column(name="EmployeeId")   //naming the column in the table
 	private Integer id;
 	@Column(name="EmployeeName",length=20)
